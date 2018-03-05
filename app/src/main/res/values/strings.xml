@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Produto legal</string>
+    <string name="usuario">Usuario</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+    <string name="valor">Valor</string>
+    <string name="nome">Nome</string>
+    <string name="descricao">Descricao</string>
+</resources>

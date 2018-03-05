@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/criar"
+        android:icon="@drawable/ic_action_new"
+        android:title="Salvar"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/pesquisar"
+        android:icon="@drawable/ic_action_search"
+        android:title="Pesquisar"
+        app:showAsAction="always"/>
+</menu>

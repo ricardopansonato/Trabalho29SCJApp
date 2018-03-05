@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="trabalho.fiap.com.br.trabalho29scjapp.LoginActivity">
+
+        <TextView
+            android:id="@+id/lblUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/usuario" />
+
+        <EditText
+            android:id="@+id/edtUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lblUsuario"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_toEndOf="@+id/lblUsuario"
+            android:layout_toRightOf="@+id/lblUsuario"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lblSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblUsuario"
+            android:layout_marginTop="56dp"
+            android:layout_toLeftOf="@+id/edtUsuario"
+            android:layout_toStartOf="@+id/edtUsuario"
+            android:text="@string/senha" />
+
+        <EditText
+            android:id="@+id/edtSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lblSenha"
+            android:layout_alignLeft="@+id/edtUsuario"
+            android:layout_alignStart="@+id/edtUsuario"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtSenha"
+            android:layout_alignStart="@+id/edtSenha"
+            android:layout_below="@+id/edtSenha"
+            android:layout_marginTop="30dp"
+            android:text="@string/login" />
+
+</RelativeLayout>
