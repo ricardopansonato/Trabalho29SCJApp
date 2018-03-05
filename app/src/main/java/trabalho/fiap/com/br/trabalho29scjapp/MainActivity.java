@@ -1,6 +1,7 @@
 package trabalho.fiap.com.br.trabalho29scjapp;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -31,10 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private String authorization;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = getApplicationContext();
 
         edtFiltro = findViewById(R.id.filtro);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
@@ -68,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.pesquisar:
                 buscar();
+                return true;
+            case R.id.sobre:
+                Intent intent = getIntent();
+                String authorization = intent.getStringExtra("authorization");
+                Intent intentAbout = new Intent(getApplicationContext(), AboutActivity.class);
+                intentAbout.putExtra("authorization", authorization);
+                startActivity(intentAbout);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -107,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void editar(String id) {
-        showProgress("Produto", "Carregando os dados");
+        showProgress(context.getString(R.string.produto), context.getString(R.string.produto_carregando));
         ProdutoAPI service = getRetrofit().create(ProdutoAPI.class);
         service.buscar(authorization, id)
                 .enqueue(new Callback<Produto>() {
@@ -135,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void carregarTela() {
-        showProgress("Produto", "Carregando os dados");
+        showProgress(context.getString(R.string.produto), context.getString(R.string.produto_carregando));
         ProdutoAPI service = getRetrofit().create(ProdutoAPI.class);
         Intent intent = getIntent();
         final String authorization = intent.getStringExtra("authorization");
@@ -150,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                                 recyclerView.setAdapter(new ProdutoAdapter(response.body().getItems(), authorization, MainActivity.this));
                             } else {
                                 Toast.makeText(getApplicationContext(),
-                                        "Deu ruim", Toast.LENGTH_SHORT).show();
+                                        context.getString(R.string.erro), Toast.LENGTH_SHORT).show();
                             }
                         }
                         dismissProgress();
@@ -159,14 +170,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Produtos> call, Throwable t) {
                         Toast.makeText(getApplicationContext(),
-                                "Deu ruim", Toast.LENGTH_SHORT).show();
+                                context.getString(R.string.erro), Toast.LENGTH_SHORT).show();
                         dismissProgress();
                     }
                 });
     }
 
     private void buscar() {
-        showProgress("Produto", "Carregando os dados");
+        showProgress(context.getString(R.string.produto), context.getString(R.string.produto_carregando));
         ProdutoAPI service = getRetrofit().create(ProdutoAPI.class);
         Intent intent = getIntent();
         final String authorization = intent.getStringExtra("authorization");
@@ -181,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                                 recyclerView.setAdapter(new ProdutoAdapter(response.body().getItems(), authorization, MainActivity.this));
                             } else {
                                 Toast.makeText(getApplicationContext(),
-                                        "Deu ruim", Toast.LENGTH_SHORT).show();
+                                        context.getString(R.string.erro), Toast.LENGTH_SHORT).show();
                             }
                         }
                         dismissProgress();
@@ -190,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Produtos> call, Throwable t) {
                         Toast.makeText(getApplicationContext(),
-                                "Deu ruim", Toast.LENGTH_SHORT).show();
+                                context.getString(R.string.erro), Toast.LENGTH_SHORT).show();
                         dismissProgress();
                     }
                 });

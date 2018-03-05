@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cool bro</string>
+    <string name="usuario">Username</string>
+    <string name="senha">Password</string>
+    <string name="login">Login</string>
+    <string name="valor">Value</string>
+    <string name="nome">Name</string>
+    <string name="descricao">Description</string>
+    <string name="produto">Product</string>
+    <string name="produto_descricao">Saving</string>
+    <string name="produto_gravado">Success</string>
+    <string name="erro">Bad programmer, no donuts for you</string>
+    <string name="invalido">Invalid</string>
+    <string name="login_descricao">Processing</string>
+    <string name="login_sucesso">Success</string>
+    <string name="login_erro">Bad programmer, no donuts for you</string>
+    <string name="produto_carregando">Loading</string>
+    <string name="version">Versão 666</string>
+    <string name="autor">Ricardo Leonardo Pansonato</string>
+    <string name="voltar">Back</string>
+</resources>

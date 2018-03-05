@@ -1,6 +1,7 @@
 package trabalho.fiap.com.br.trabalho29scjapp;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ public class CreateUpdateActivity extends AppCompatActivity {
     private String authorization;
     private String id;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,8 @@ public class CreateUpdateActivity extends AppCompatActivity {
         Intent intent = getIntent();
         authorization = intent.getStringExtra("authorization");
         id = intent.getStringExtra("id");
+
+        context = getApplicationContext();
 
         String nome = intent.getStringExtra("nome");
         if (nome != null) {
@@ -88,7 +93,8 @@ public class CreateUpdateActivity extends AppCompatActivity {
     }
 
     private void salvar() {
-        showProgress("Produto", "Salvando produto");
+
+        showProgress(context.getString(R.string.produto), context.getString(R.string.produto_descricao));
 
         ProdutoAPI service = getRetrofit().create(ProdutoAPI.class);
         if(produto == null) {
@@ -113,7 +119,7 @@ public class CreateUpdateActivity extends AppCompatActivity {
 
                     dismissProgress();
                     Toast.makeText(getApplicationContext(),
-                            "Produto gravado", Toast.LENGTH_SHORT).show();
+                            context.getString(R.string.produto_gravado), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.putExtra("authorization", authorization);
                     startActivity(intent);
@@ -123,13 +129,13 @@ public class CreateUpdateActivity extends AppCompatActivity {
                 public void onFailure(Call<Void> call, Throwable t) {
                     dismissProgress();
                     Toast.makeText(getApplicationContext(),
-                            "Deu ruim", Toast.LENGTH_SHORT).show();
+                            context.getString(R.string.erro), Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
             dismissProgress();
             Toast.makeText(getApplicationContext(),
-                    "Dados invalidos", Toast.LENGTH_SHORT).show();
+                    context.getString(R.string.invalido), Toast.LENGTH_SHORT).show();
         }
     }
 

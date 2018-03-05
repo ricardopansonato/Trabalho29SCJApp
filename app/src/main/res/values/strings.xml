@@ -6,4 +6,16 @@
     <string name="valor">Valor</string>
     <string name="nome">Nome</string>
     <string name="descricao">Descricao</string>
+    <string name="produto">Produto</string>
+    <string name="produto_descricao">Salvando produto</string>
+    <string name="produto_gravado">Produto salvo</string>
+    <string name="erro">Deu ruim</string>
+    <string name="invalido">Dados invalidos</string>
+    <string name="login_descricao">Realizando login</string>
+    <string name="login_sucesso">Login realizado com sucesso</string>
+    <string name="login_erro">Usuario e senha invalidos</string>
+    <string name="produto_carregando">Carregando dados</string>
+    <string name="version">Versão 666</string>
+    <string name="autor">Ricardo Leonardo Pansonato</string>
+    <string name="voltar">Voltar</string>
 </resources>

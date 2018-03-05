@@ -10,4 +10,9 @@
         android:icon="@drawable/ic_action_search"
         android:title="Pesquisar"
         app:showAsAction="always"/>
+
+    <item android:id="@+id/sobre"
+        android:icon="@drawable/ic_action_about"
+        android:title="Pesquisar"
+        app:showAsAction="always"/>
 </menu>

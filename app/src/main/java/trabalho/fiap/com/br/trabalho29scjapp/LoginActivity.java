@@ -1,6 +1,7 @@
 package trabalho.fiap.com.br.trabalho29scjapp;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         edtSenha = (EditText) findViewById(R.id.edtSenha);
 
         progressDialog = new ProgressDialog(this);
+
+        context = getApplicationContext();
 
         final Button button = findViewById(R.id.btnLogin);
         button.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-        showProgress("Login", "Realizando login");
+        showProgress(context.getString(R.string.login), context.getString(R.string.login_descricao));
 
         UsuarioAPI service = getRetrofit().create(UsuarioAPI.class);
         if(usuario == null)
@@ -68,14 +73,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<Token> call, Response<Token> response) {
                 dismissProgress();
                 Toast.makeText(getApplicationContext(),
-                        "Login realizado com sucesso", Toast.LENGTH_SHORT).show();
+                        context.getString(R.string.login_sucesso), Toast.LENGTH_SHORT).show();
                 if (response.body() != null) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.putExtra("authorization", response.body().getToken());
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "Usuario/senha invalido(s)", Toast.LENGTH_SHORT).show();
+                            context.getString(R.string.login_erro), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -83,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<Token> call, Throwable t) {
                 dismissProgress();
                 Toast.makeText(getApplicationContext(),
-                        "Deu ruim", Toast.LENGTH_SHORT).show();
+                        context.getString(R.string.erro), Toast.LENGTH_SHORT).show();
             }
         });
     }
