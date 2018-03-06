@@ -18,4 +18,8 @@
     <string name="version">Versão 666</string>
     <string name="autor">Ricardo Leonardo Pansonato</string>
     <string name="voltar">Back</string>
+    <string name="criar">Create</string>
+    <string name="usuario_descricao">Create</string>
+    <string name="usuario_sucesso">Success</string>
+    <string name="usuario_erro">Error</string>
 </resources>

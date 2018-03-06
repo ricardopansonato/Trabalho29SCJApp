@@ -10,4 +10,7 @@ public interface UsuarioAPI {
 
     @POST("/auth")
     Call<Token> login(@Body Usuario usuario);
+
+    @POST("/usuario/")
+    Call<Usuario> salvar(@Body Usuario usuario);
 }

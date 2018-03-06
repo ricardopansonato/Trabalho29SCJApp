@@ -43,9 +43,16 @@ public class LoginActivity extends AppCompatActivity {
         context = getApplicationContext();
 
         final Button button = findViewById(R.id.btnLogin);
+        final Button criar = findViewById(R.id.btnCriar);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 login();
+            }
+        });
+        criar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateUserActivity.class);
+                startActivity(intent);
             }
         });
     }
